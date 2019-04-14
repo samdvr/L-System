@@ -31,6 +31,4 @@ object Runner extends App {
     val data = Generator.sequenceNumber(List(Up, Forward), 8)
     drawer.convert(data).draw
   }
-
-
 }
