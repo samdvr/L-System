@@ -2,7 +2,7 @@
 
 
 [L-System](https://en.wikipedia.org/wiki/L-system)
-Image generator using Scala's [https://github.com/creativescala/doodle](Doodle library).
+Image generator using [Doodle library](https://github.com/creativescala/doodle).
 Example generated images are in examples folder.
 
 Sample Language and Interpreter
