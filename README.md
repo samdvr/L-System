@@ -3,7 +3,7 @@
 
 [L-System](https://en.wikipedia.org/wiki/L-system)
 Image generator using [Doodle library](https://github.com/creativescala/doodle).
-Example generated images are in examples folder.
+Example generated images are in [here](https://github.com/samdvr/L-System/tree/master/examples).
 
 Sample Language and Interpreter
 
