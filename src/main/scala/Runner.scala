@@ -19,8 +19,8 @@ object Implicits {
 
   implicit val drawer: Drawer[Language] = new Drawer[Language] {
     override def convert: List[Language] => List[Instruction] = _.flatMap {
-      case A => List(forward(20))
-      case B => List(forward(20))
+      case A => List(forward(1))
+      case B => List(forward(1))
       case TurnLeft => List(turn(-60.degrees))
       case TurnRight => List(turn(60.degrees))
     }
@@ -30,7 +30,7 @@ object Implicits {
 object Runner extends App {
   override def main(args: Array[String]): Unit = {
     import Implicits._
-    val data = Generator.sequenceNumber(List(A, B), 10)
+    val data = Generator.sequenceNumber(List(A, B), 11)
     drawer.convert(data).draw
   }
 }
