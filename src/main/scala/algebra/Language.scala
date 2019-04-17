@@ -4,10 +4,13 @@ sealed trait Language
 
 object Language {
 
-  case object Up extends Language
+  case object A extends Language
 
-  case object Forward extends Language
+  case object B extends Language
 
-  case object Down extends Language
+  case object TurnLeft extends Language
+
+  case object TurnRight extends Language
+
 
 }

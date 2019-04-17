@@ -8,7 +8,6 @@ trait Drawer[T] {
 
 object Draw {
 
-
   import doodle.turtle._
   import doodle.java2d._
   import doodle.image.syntax._
