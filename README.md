@@ -8,9 +8,7 @@ Example generated images are in [here](https://github.com/samdvr/L-System/tree/m
 Sample Language and Interpreter
 
 ```scala
-
 import algebra._
-import algebra.Language.{Forward, Down, Up}
 import doodle.turtle._
 import doodle.turtle.Instruction._
 import doodle.syntax._
@@ -22,16 +20,18 @@ object Implicits {
   object Generator extends SequenceGenerator[Language]
 
   implicit val rule: ProductionRule[Language] = {
-    case Forward => List(Forward, Forward, Down)
-    case Up => List(Up, Up, Down)
-    case Down => List(Down, Forward, Down)
+    case A => List(B, TurnLeft, A, TurnLeft, B)
+    case B => List(A, TurnRight, B, TurnRight, A)
+    case TurnLeft => List(TurnLeft)
+    case TurnRight => List(TurnRight)
   }
 
   implicit val drawer: Drawer[Language] = new Drawer[Language] {
     override def convert: List[Language] => List[Instruction] = _.flatMap {
-      case Up => List(turn(60.degrees), forward(50))
-      case Forward => List(forward(50))
-      case Down => List(turn(60.degrees))
+      case A => List(forward(5))
+      case B => List(forward(5))
+      case TurnLeft => List(turn(-60.degrees))
+      case TurnRight => List(turn(60.degrees))
     }
   }
 }
@@ -39,12 +39,11 @@ object Implicits {
 object Runner extends App {
   override def main(args: Array[String]): Unit = {
     import Implicits._
-    val data = Generator.sequenceNumber(List(Up, Forward), 8)
+    val data = Generator.sequenceNumber(List(A, B), 10)
     drawer.convert(data).draw
   }
-
-
 }
+
 
 ``` 
 
